@@ -1,9 +1,6 @@
-#include <arduino.h>
 #include <SPI.h>
 #include "RF24.h"
 #include "nRF24L01.h"
-#include "printf.h"
-#include "Base.h"
 
 
 byte addresses[][6]{ "1Node","2Node" };
@@ -54,7 +51,7 @@ void ciclo()
 	radio.startListening();
 
 	unsigned long started_waiting_at = micros();
-	boolean timeout{ false };yield()
+	boolean timeout{ false };
 
 	while (!radio.available()) {                           
 		if (micros() - started_waiting_at > 200000) {
